@@ -1,0 +1,67 @@
+# Harmonic Oscilarors problem. The solution is stable with this time step.(euler method)
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+x=[1]
+v=[0]
+A=-1
+delta=0.1
+omega=1
+i=0
+while i<100:
+    x.append(x[-1]+v[-1]*delta)
+    v.append(v[-1]+x[-1]*delta*omega*A)
+    i+=1
+plt.plot(x,v);
+
+--------------------------------------------------------------------------------------------------------------------
+# Harmonic Oscilarors problem. The solution is unstable with this time step.(euler method)
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+#harmonic oscilator
+x=[1]
+v=[0]
+A=-1
+delta=0.5
+omega=10
+i=0
+while i<100:
+    x.append(x[-1]+v[-1]*delta)
+    v.append(v[-1]+x[-1]*delta*omega*A)
+    i+=1
+plt.plot(x,v);
+
+-------------------------------------------------------------------------------------------------------------------
+# midpoint method for oscilator problem .. with stable solution wit this value of delta
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+#harmonic oscilator
+x=[1]
+v=[0]
+delta=0.001
+omega=1
+i=0
+while i<10000:
+    x.append(x[-1]+v[-1]*delta)
+    v.append(v[-1]-delta*omega*x[-1]+v[-1]*(delta*delta)*omega/2)
+    i+=1
+plt.plot(x,v);
+------------------------------------------------------------------------------------------------------------------
+# midpoint method for oscilator problem .. with unstable solution wit this value of delta
+#midpoint method
+import numpy as np
+import matplotlib.pyplot as plt
+%matplotlib inline
+#harmonic oscilator
+x=[1]
+v=[0]
+delta=0.1
+omega=1
+i=0
+while i<10000:
+    x.append(x[-1]+v[-1]*delta)
+    v.append(v[-1]-delta*omega*x[-1]+v[-1]*(delta*delta)*omega/2)
+    i+=1
+plt.plot(x,v);
